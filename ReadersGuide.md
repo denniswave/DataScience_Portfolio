@@ -14,7 +14,7 @@ To get a better understanding of how our data was structured, I tried visualizin
 
 Later, I tried a different vectorization method: word2vec, and visualized the vector space using t-SNE. See [notebook 6](./Dennis_van_Oosten_6_Word2Vec_&_t-SNE.ipynb).
 
-## First machine learning attempts
+## Machine learning
 
 For the first attempt at training a model, I tried several on the dataset and compared the scores. See [notebook 4](./Dennis_van_Oosten_4_Training_multiple_models.ipynb).
 
