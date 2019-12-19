@@ -29,12 +29,12 @@ The following confusion matrices were created in notebooks 7.1 and 7.2:
 - [One vs rest](./Confusion%20Matrix%20-%20One%20Vs%20Rest.png)
 - [Random forest](./Confusion%20Matrix%20-%20Random%20Forest%20Classifier.png)
 - [SGD Classifier](./Confusion%20Matrix%20-%20SGD%20Classifier.png)
-- [LinearSVC Balanced](./Confusion%20Matrix%20Balanced%20-%20Linear SVC.png)
-- [Logistic regression Balanced](./Confusion%20Matrix%20Balanced%20-%20Logistic%20Regression.png)
-- [Multinomial NB Balanced](./Confusion%20Matrix%20Balanced%20-%20Multinomial%20Naive%20Bais.png)
-- [One vs rest Balanced](./Confusion%20Matrix%20Balanced%20-%20One%20Vs%20Rest.png)
-- [Random forest Balanced](./Confusion%20Matrix%20Balanced%20-%20Random%20Forest%20Classifier.png)
-- [SGD Classifier Balanced](./Confusion%20Matrix%20Balanced%20-%20SGD%20Classifier.png)
+- [LinearSVC - Balanced](./Confusion%20Matrix%20Balanced%20-%20Linear%20SVC.png)
+- [Logistic regression - Balanced](./Confusion%20Matrix%20Balanced%20-%20Logistic%20Regression.png)
+- [Multinomial NB - Balanced](./Confusion%20Matrix%20Balanced%20-%20Multinomial%20Naive%20Bais.png)
+- [One vs rest - Balanced](./Confusion%20Matrix%20Balanced%20-%20One%20Vs%20Rest.png)
+- [Random forest - Balanced](./Confusion%20Matrix%20Balanced%20-%20Random%20Forest%20Classifier.png)
+- [SGD Classifier - Balanced](./Confusion%20Matrix%20Balanced%20-%20SGD%20Classifier.png)
 
 In [notebook 8](./Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I attempted to improve the best result of LinearSVC by tweaking the tf-idf vectorization.
 
