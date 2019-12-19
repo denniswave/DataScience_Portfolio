@@ -46,6 +46,7 @@ To see if our pipeline of preprocessing, vectorization and training worked well 
 - The [IMDB reviews](./Dennis_van_Oosten_15_IMDB_Reviews.ipynb) scored 90% while the best Kaggle score was 93%.
 - The [Video game comments](./Dennis_van_Oosten_16_Video_Game_Comments.ipynb) was off by 1.25 points while the Kaggle model was off by 1.22.
 - The [Toxic comment](./Dennis_van_Oosten_17_Toxic_Comment.ipynb) scored 92%.
+
 Overall, we can say that our model performs pretty well on other datasets.
 
 ## Neural networks
@@ -61,7 +62,7 @@ To be able to combine the Agora data from Kaggle and the In [notebook 22](./Denn
 
 ## Balancing differently
 
-Another method we could still try to improve our model was to balance it in a different way. The only balancing I'd tried so far was to remove entires from larger categories to make all categories of equal size and remove the ones that were too small (see 'Creating reusable dataframes'). This worked, but meant that a lot of data was lost. In [notebook 26.1](./Dennis_van_Oosten_26.1_Sample_Balancing_TFIDF.ipynb) and [notebook 26.2](./Dennis_van_Oosten_26.2_Sample_Balancing_W2V.ipynb) I tried balancing by copying records from categories that had less records to make them all of equal length. This turned out to work as well, but not better compared to the unbalanced set: [notebook 26.3](./Dennis_van_Oosten_26.3_Main_Categories_W2V.ipynb). 
+Another method we could still try to improve our model was to balance it in a different way. The only balancing I'd tried so far was to remove entires from larger categories to make all categories of equal size and remove the ones that were too small (see 'Creating reusable dataframes'). This worked, but meant that a lot of data was lost. In [notebook 26.1](./Dennis_van_Oosten_26.1_Sample_Balancing_TFIDF.ipynb) and [notebook 26.2](./Dennis_van_Oosten_26.2_Sample_Balancing_W2V.ipynb) I tried balancing by copying records from categories that had less records to make them all of equal length. This turned out to work well, but not better compared to the unbalanced set: [notebook 26.3](./Dennis_van_Oosten_26.3_Main_Categories_W2V.ipynb). 
 
 
 
