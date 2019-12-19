@@ -23,18 +23,18 @@ The best result from this initial attempt was a LinearSVC model. In [notebook 5]
 Later on, I wanted to take a closer look into the comparison scores for different algorithms. In [notebook 7.1](./Dennis_van_Oosten_7.1_ML_Comparisons.ipynb). I compare different algorithms against the entire dataset and in [notebook 7.2](./Dennis_van_Oosten_7.2_ML_Comparisons.ipynb) I do the same with the dataset balanced to see if that made a difference.
 
 The following confusion matrices were created in notebooks 7.1 and 7.2:
-- [LinearSVC](./Confusion Matrix - Linear SVC.png)
-- [Logistic regression](./Confusion Matrix - Logistic Regression.png)
-- [Multinomial NB](./Confusion Matrix - Multinomial Naive Bais.png)
-- [One vs rest](./Confusion Matrix - One Vs Rest.png)
+- [LinearSVC](./Confusion%20Matrix%20-%20Linear%20SVC.png)
+- [Logistic regression](./Confusion%20Matrix%20-%20Logistic%20Regression.png)
+- [Multinomial NB](./Confusion%20Matrix%20-%20Multinomial%20Naive%20Bais.png)
+- [One vs rest](./Confusion%20Matrix%20-%20One%20Vs%20Rest.png)
 - [Random forest](./Confusion%20Matrix%20-%20Random%20Forest%20Classifier.png)
-- [SGD Classifier](./Confusion Matrix - SGD Classifier.png)
-- [LinearSVC Balanced](./Confusion Matrix Balanced - Linear SVC.png)
-- [Logistic regression Balanced](./Confusion Matrix Balanced - Logistic Regression.png)
-- [Multinomial NB Balanced](./Confusion Matrix Balanced - Multinomial Naive Bais.png)
-- [One vs rest Balanced](./Confusion Matrix Balanced - One Vs Rest.png)
-- [Random forest Balanced](./Confusion Matrix Balanced - Random Forest Classifier.png)
-- [SGD Classifier Balanced](./Confusion Matrix Balanced - SGD Classifier.png)
+- [SGD Classifier](./Confusion%20Matrix%20-%20SGD%20Classifier.png)
+- [LinearSVC Balanced](./Confusion%20Matrix%20Balanced%20-%20Linear SVC.png)
+- [Logistic regression Balanced](./Confusion%20Matrix%20Balanced%20-%20Logistic%20Regression.png)
+- [Multinomial NB Balanced](./Confusion%20Matrix%20Balanced%20-%20Multinomial%20Naive%20Bais.png)
+- [One vs rest Balanced](./Confusion%20Matrix%20Balanced%20-%20One%20Vs%20Rest.png)
+- [Random forest Balanced](./Confusion%20Matrix%20Balanced%20-%20Random%20Forest%20Classifier.png)
+- [SGD Classifier Balanced](./Confusion%20Matrix%20Balanced%20-%20SGD%20Classifier.png)
 
 In [notebook 8](./Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I attempted to improve the best result of LinearSVC by tweaking the tf-idf vectorization.
 
