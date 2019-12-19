@@ -1,4 +1,4 @@
-# DataScience Portfolio
+# Data Science Portfolio
 
 ## Datacamp course
 I have completed the datacamp assignments required for this minor.
