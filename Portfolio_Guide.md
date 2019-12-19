@@ -4,12 +4,12 @@
 I have completed the datacamp assignments required for this minor.
 
 ## Reflection and evaluation
-- [Reflection on own contribution to the project](./)
-- [Reflection on own learning objectives](./)
-- [Evaluation on the group project as a whole](./)
+- [Reflection on own contribution to the project](./) (yet to be implemented)
+- [Reflection on own learning objectives](./) (yet to be implemented)
+- [Evaluation on the group project as a whole](./) (yet to be implemented)
 
 ## Research project
-The research project resulted in a paper with our groups findings. The (SCRUM) planning of the project was done in [Trello](./).
+The research project resulted in a paper with our groups findings. The (SCRUM) planning of the project was done in Trello.
 
 ## Predictive analytics, Domain knowledge & Data preprocessing
 
