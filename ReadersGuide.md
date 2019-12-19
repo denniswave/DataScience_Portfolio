@@ -44,7 +44,7 @@ In the following notebooks, I tried to get more insight in the learning process 
 
 To see if our pipeline of preprocessing, vectorization and training worked well in general, I tested it out with other datasets found on Kaggle. I compared the results from the Kaggle scoreboard to our results and they turned out quite well.
 - The [IMDB reviews](./Dennis_van_Oosten_15_IMDB_Reviews.ipynb) scored 90% while the best Kaggle score was 93%.
-- The [Video game comments]((./Dennis_van_Oosten_16_Video_Game_Comments.ipynb) was off by 1.25 points while the Kaggle model was off by 1.22.
+- The [Video game comments](./Dennis_van_Oosten_16_Video_Game_Comments.ipynb) was off by 1.25 points while the Kaggle model was off by 1.22.
 - The [Toxic comment](./Dennis_van_Oosten_17_Toxic_Comment.ipynb) scored 92%.
 Overall, we can say that our model performs pretty well on other datasets.
 
@@ -59,7 +59,7 @@ Because TNO wanted the categories mapped to the Interpol topics list and maybe a
 
 To be able to combine the Agora data from Kaggle and the In [notebook 22](./Dennis_van_Oosten_22_Mapped_Dataset.ipynb) I trained the mapped Agora dataset to see how it would perform when labelled differently. In [notebook 23](./Dennis_van_Oosten_23_Mapping.ipynb) I mapped the 'darkweb markets dataset' (the new data from webIq that TNO wanted us to work on) and in [notebook 24](./Dennis_van_Oosten_24_New_Dataset.ipynb) I visualized and trained this new, mapped dataset to see how it compared to Agora.
 
-# Balancing differently
+## Balancing differently
 
 Another method we could still try to improve our model was to balance it in a different way. The only balancing I'd tried so far was to remove entires from larger categories to make all categories of equal size and remove the ones that were too small (see 'Creating reusable dataframes'). This worked, but meant that a lot of data was lost. In [notebook 26.1](./Dennis_van_Oosten_26.1_Sample_Balancing_TFIDF.ipynb) and [notebook 26.2](./Dennis_van_Oosten_26.2_Sample_Balancing_W2V.ipynb) I tried balancing by copying records from categories that had less records to make them all of equal length. This turned out to work as well, but not better compared to the unbalanced set: [notebook 26.3](./Dennis_van_Oosten_26.3_Main_Categories_W2V.ipynb). 
 
