@@ -27,7 +27,7 @@ The following confusion matrices were created in notebooks 7.1 and 7.2:
 - [Logistic regression](./Confusion Matrix - Logistic Regression.png)
 - [Multinomial NB](./Confusion Matrix - Multinomial Naive Bais.png)
 - [One vs rest](./Confusion Matrix - One Vs Rest.png)
-- [Random forest](./Confusion Matrix - Random Forest Classifier.png)
+- [Random forest](./Confusion%20Matrix%20-%20Random%20Forest%20Classifier.png)
 - [SGD Classifier](./Confusion Matrix - SGD Classifier.png)
 - [LinearSVC Balanced](./Confusion Matrix Balanced - Linear SVC.png)
 - [Logistic regression Balanced](./Confusion Matrix Balanced - Logistic Regression.png)
