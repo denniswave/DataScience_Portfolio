@@ -9,13 +9,18 @@ I have completed the datacamp assignments required for this minor.
 - [Evaluation on the group project as a whole](./reflection_and_evaluation/evaluation_group_project.md) 
 
 ## Research project
-The research project resulted in a paper with our groups findings. The (SCRUM) planning of the project was done in Trello.
 
-## Predictive analytics, Domain knowledge & Data preprocessing
+### Task definition, evaluation and conclusion
+The research project is described in the research paper. In this research paper, the task definition, evaluation and conclusion of the project are discussed in detail.
 
-The following provides a guide to the notebooks I've worked on during the minor. The guide will be (mostly) in chronological order, starting with the first steps into data science and working through multiple phases in the minor project.
+### Planning
+The (SCRUM) planning of the project was done in Trello. Here, our two-week sprints, backlog and tasks were defined and the group used this to plan the project in order to determine what we would do and who would work on which tasks. A general planning was also made to determine which milestones the group had to make in order to stay on schedule.
 
-### Preprocessing
+## Notebooks
+
+The following provides a guide to the notebooks I've worked on during the minor. The guide will be (mostly) in chronological order, starting with the first steps into data science and working through multiple phases in the minor project. For more explanation of what I have done and what choices I made when choosing models and evaluating outcomes, please see the markdown comments in each of the notebooks that are linked in this file.
+
+### Data Preprocessing
 
 To practice with python and pandas, we got a dataset from TNO to practice on. This was a public dataset found on Kaggle and consisted of Agora marketplace data. The [first notebook](./notebooks/Dennis_van_Oosten_1_Preprocessing.ipynb) shows the preprocessing script I created after trying out a lot of different methods. This script will help easily choose what preprocessing methods we want to use in the future of the project.
 
@@ -27,7 +32,7 @@ To get a better understanding of how our data was structured, I tried visualizin
 
 Later, I tried a different vectorization method: word2vec, and visualized the vector space using t-SNE. See [notebook 6](./notebooks/Dennis_van_Oosten_6_Word2Vec_&_t-SNE.ipynb).
 
-### Machine learning
+### Machine learning & Predictive Analysis
 
 For the first attempt at training a model, I tried several on the dataset and compared the scores. See [notebook 4](./notebooks/Dennis_van_Oosten_4_Training_multiple_models.ipynb).
 
@@ -92,4 +97,9 @@ To be able to combine the Agora data from Kaggle and the In [notebook 22](./note
 Another method we could still try to improve our model was to balance it in a different way. The only balancing I'd tried so far was to remove entires from larger categories to make all categories of equal size and remove the ones that were too small (see 'Creating reusable dataframes'). This worked, but meant that a lot of data was lost. In [notebook 26.1](./notebooks/Dennis_van_Oosten_26.1_Sample_Balancing_TFIDF.ipynb) and [notebook 26.2](./notebooks/Dennis_van_Oosten_26.2_Sample_Balancing_W2V.ipynb) I tried balancing by copying records from categories that had less records to make them all of equal length. This turned out to work well, but not better compared to the unbalanced set: [notebook 26.3](./notebooks/Dennis_van_Oosten_26.3_Main_Categories_W2V.ipynb). 
 
 ## Communication
-I gave more than two presentations and contributed in writing the research paper.
+
+### Presentations
+During the project, I gave a sufficient amoutn of presentation. I don't know exactly how many, but every group memeber has roughly done the same amoutn of presentations, and definetely more than two.
+
+### Writing paper
+The paper was written using an online LaTeX editor. The group as a whole wrote the paper together and all, including myself, contributed to the final outcome of the research.
