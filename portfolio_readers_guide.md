@@ -1,7 +1,8 @@
 # Data Science Portfolio
 
 ## Datacamp course
-I have completed the datacamp assignments required for this minor.
+I have completed the datacamp assignments required for this minor in time:
+![DataCamp](./images/datacamp_screenshot.jpg)
 
 ## Reflection and evaluation
 - [Reflection on own contribution to the project](./reflection_and_evaluation/reflection_own_contribution.md) 
@@ -10,11 +11,23 @@ I have completed the datacamp assignments required for this minor.
 
 ## Research project
 
-### Task definition, evaluation and conclusion
-The research project is described in the research paper. In this research paper, the task definition, evaluation and conclusion of the project are discussed in detail.
+### Task definition
+TNO is a Dutch research organisation that asked our group form The Hague University of Applied Sciences to collaborate with them on the TITANIUM project. This international project aims to reduce online crime by monitoring the dark web in a better way. One of the goals of the project was to monitor dark web markets and forums to automatically see what topics they are about. This is exactly what this minor project aims to solve. The task of the project is to create a multi-class text classifier that can take texts from dark web forums and markets and classify them to one of the topics on a list Interpol provides. The main research question was: “How can a pipeline be created that classifies dark web text based content to a predetermined list of topics?“. Using machine learning and natural language processing (NLP) the group used the course of this minor to create a complete pipeline to achieve this kind of classification.
+
+### Evaluation
+The desired result of this minor project was a pipeline that classifies dark web content to a topics list provided by Interpol. This goal was achieved, although I think not in a complete way. Due to the data that TNO provided, the classifier wasn't complete. By this, I mean that the model cannot categorize all topics interpol is interested in, simply because the data did not consist of all topics. The model could not be trained on topics with no training data. Nevertheless, I think I can say that the end result is a good pipeline that can classify the topics that were present in a sufficient way. The mapped topics scored a high accuracy and f1-score that TNO was happy with. 
+
+For the future, I would suggest TNO or another research group continue the work our group did and use more data to be able to classify more topics.
+
+### Conclusion
+The result of the pipeline created by my group is a preprocessing script, a vectorization method and a model (linear SVC) that is trained with Agora and Web-IQ data to classify a range of dark web topics. The model scored around 95 percent for the mapped dataset on Agora. Looking at confusion matrices and f1-scores, the model also looked well. Considering the lack of some data, I think the end result is quite good. To answer the research question, the pipeline that we created looks as follows: Firstly, we preprocess the data using the preprocessing script created specifically for NLP. Then, we vectorize the data using tf-idf using n-grams. Lastly, new data is fed into the trained linear SVC model, which predicts the topic for the provided description.
 
 ### Planning
-The (SCRUM) planning of the project was done in Trello. Here, our two-week sprints, backlog and tasks were defined and the group used this to plan the project in order to determine what we would do and who would work on which tasks. A general planning was also made to determine which milestones the group had to make in order to stay on schedule.
+A general planning was made to determine which milestones the group had to make in order to stay on schedule. 
+![General planning](./images/general_planning.jpg)
+
+The project was planned using Agile SCRUM and this was done in Trello. Here, our two-week sprints, backlog and tasks were defined and the group used this to plan the project in order to determine what we would do and who would work on which tasks.
+![Trello](./images/trello.jpg)
 
 ## Notebooks
 
@@ -40,7 +53,7 @@ The best result from this initial attempt was a LinearSVC model. In [notebook 5]
 
 Later on, I wanted to take a closer look into the comparison scores for different algorithms. In [notebook 7.1](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb). I compare different algorithms against the entire dataset and in [notebook 7.2](./notebooks/Dennis_van_Oosten_7.2_ML_Comparisons.ipynb) I do the same with the dataset balanced to see if that made a difference.
 
-The following confusion matrices were created in notebooks 7.1 and 7.2:
+The following confusion matrices were created in notebooks 7.1 and 7.2 (download to see the full image):
 - [LinearSVC](./images/Confusion%20Matrix%20-%20Linear%20SVC.png)
 - [Logistic regression](./images/Confusion%20Matrix%20-%20Logistic%20Regression.png)
 - [Multinomial NB](./images/Confusion%20Matrix%20-%20Multinomial%20Naive%20Bais.png)
@@ -90,7 +103,7 @@ To compare how these neural networks compared to our best model, I trained our b
 
 Because TNO wanted the categories mapped to the Interpol topics list and maybe also detect new topics, I tried a form of topic modelling in [notebook 20](./notebooks/Dennis_van_Oosten_20_Extracting_Topics.ipynb). However, eventually we mapped the topics ourselves manually, since this wouldn't take that long and would assure that we got the best labels for further training.
 
-To be able to combine the Agora data from Kaggle and the In [notebook 22](./notebooks/Dennis_van_Oosten_22_Mapped_Dataset.ipynb) I trained the mapped Agora dataset to see how it would perform when labelled differently. In [notebook 23](./notebooks/Dennis_van_Oosten_23_Mapping.ipynb) I mapped the 'darkweb markets dataset' (the new data from webIq that TNO wanted us to work on) and in [notebook 24](./notebooks/Dennis_van_Oosten_24_New_Dataset.ipynb) I visualized and trained this new, mapped dataset to see how it compared to Agora.
+To be able to combine the Agora data from Kaggle and the In [notebook 22](./notebooks/Dennis_van_Oosten_22_Mapped_Dataset.ipynb) I trained the mapped Agora dataset (this was already mapped by Wessel Ottevanger) to see how it would perform when labelled differently. In [notebook 23](./notebooks/Dennis_van_Oosten_23_Mapping.ipynb) Wessel and I mapped the 'darkweb markets dataset' (the new data from webIq that TNO wanted us to work on). We took a look at the categories in both datasets together to make sure the categories mapping made sense for both datasets. This was important, since training and classifying on categories with different descriptions in them that actually belong to a different category would not be great for the eventual result. In [notebook 24](./notebooks/Dennis_van_Oosten_24_New_Dataset.ipynb) I visualized and trained this new, mapped dataset to see how it compared to Agora.
 
 ### Balancing differently
 
@@ -99,7 +112,7 @@ Another method we could still try to improve our model was to balance it in a di
 ## Communication
 
 ### Presentations
-During the project, I gave a sufficient amoutn of presentation. I don't know exactly how many, but every group memeber has roughly done the same amoutn of presentations, and definetely more than two.
+During the project, I gave a sufficient amount of presentation. I don't know exactly how many, but every group memeber has roughly done the same amoutn of presentations, and definetely more than two.
 
 ### Writing paper
 The paper was written using an online LaTeX editor. The group as a whole wrote the paper together and all, including myself, contributed to the final outcome of the research.
