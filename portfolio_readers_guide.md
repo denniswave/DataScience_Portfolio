@@ -1,7 +1,8 @@
 # Data Science Portfolio
 
 ## Datacamp course
-I have completed the datacamp assignments required for this minor in time:
+I have completed the datacamp assignments required for this minor in time.
+
 ![DataCamp](./images/datacamp_screenshot.jpg)
 
 ## Reflection and evaluation
@@ -24,34 +25,35 @@ The result of the pipeline created by my group is a preprocessing script, a vect
 
 ### Planning
 A general planning was made to determine which milestones the group had to make in order to stay on schedule. 
+
 ![General planning](./images/general_planning.jpg)
 
 The project was planned using Agile SCRUM and this was done in Trello. Here, our two-week sprints, backlog and tasks were defined and the group used this to plan the project in order to determine what we would do and who would work on which tasks.
+
 ![Trello](./images/trello.jpg)
 
-## Notebooks
+## Predictive analysis
 
-The following provides a guide to the notebooks I've worked on during the minor. The guide will be (mostly) in chronological order, starting with the first steps into data science and working through multiple phases in the minor project. For more explanation of what I have done and what choices I made when choosing models and evaluating outcomes, please see the markdown comments in each of the notebooks that are linked in this file.
+### Selecting a model
 
-### Data Preprocessing
+For the goal of classifying text content, I had to choose a classifying model. Regression models did not suit the needs for our project. A wide range of classification models was available. I searched online for common uses of these models for natural language processing to start off with. In the end, the total collections of models I've tried was of a wide range from models based on decision trees to regression based models. For the first attempt at training a model, I tried several on the dataset and compared the scores. See [notebook 4](./notebooks/Dennis_van_Oosten_4_Training_multiple_models.ipynb). The best result from this initial attempt was a LinearSVC model. In [notebook 5](./notebooks/Dennis_van_Oosten_5_LinearSVC.ipynb) I took a more in-depth look into LinearSVC.
 
-To practice with python and pandas, we got a dataset from TNO to practice on. This was a public dataset found on Kaggle and consisted of Agora marketplace data. The [first notebook](./notebooks/Dennis_van_Oosten_1_Preprocessing.ipynb) shows the preprocessing script I created after trying out a lot of different methods. This script will help easily choose what preprocessing methods we want to use in the future of the project.
+### Configuring a model
 
-### Vectorization and visualization
+When configuring the models, I noticed that Random Forest Classifier for example had way worse results than other models. After looking into how this algorithm worked, I decided to change the depth of the tree so it would better reflect the amount of features and topics we had. This dramatically improved the performance of the model.
 
-To make a first attempt in vectorization I tried applying Bag of Words to our data. See [notebook 2](./notebooks/Dennis_van_Oosten_2_Bag_of_Words.ipynb).
+After we found out Linear SVC worked best, I tried tweaking the parameters and n-grams of tf-idf to try to get a higher score. Unfortunately, this did not work. The parameters appearently were already well tuned. In [notebook 8](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I attempted to improve the best result of LinearSVC by tweaking the tf-idf vectorization.
 
-To get a better understanding of how our data was structured, I tried visualizing it in [notebook 3](./notebooks/Dennis_van_Oosten_3_Data_Visualization.ipynb).
+### Training a model
 
-Later, I tried a different vectorization method: word2vec, and visualized the vector space using t-SNE. See [notebook 6](./notebooks/Dennis_van_Oosten_6_Word2Vec_&_t-SNE.ipynb).
+In the following notebooks, I tried to get more insight in the learning process to maybe find a way to tweak and improve the best model so far (still LinearSVC with tf-idf vectorization). See [notebook 12.1](./notebooks/Dennis_van_Oosten_12.1_Learning_Curves.ipynb), [notebook 12.2](./notebooks/Dennis_van_Oosten_12.2_Learning_Curves.ipynb) and [notebook 13](./notebooks/Dennis_van_Oosten_13_Validation_Curves.ipynb). 
 
-### Machine learning & Predictive Analysis
+I also attempted to train a neural network. I did this with SKLearn which turned out to be a bad way to do it since it did not use the GPU. However, I did manage to train some models and the results weren't bad. However, they could not match LinearSVC on our dataset. See [notebook 18](./notebooks/Dennis_van_Oosten_18_CNN.ipynb), [notebook 19.1](./notebooks/Dennis_van_Oosten_19.1_MLP.ipynb), [notebook 19.2](./notebooks/Dennis_van_Oosten_19.2_MLP.ipynb) and [notebook 19.3](./notebooks/Dennis_van_Oosten_19.3_MLP.ipynb).
+To compare how these neural networks compared to our best model, I trained our best model on different datasets in [notebook 21](./notebooks/Dennis_van_Oosten_21_Comparing_Best_Results.ipynb). When configuring the hyperparameters for the neural network, I had to deal with overfitting. Neural networks are known to overfit, and I noticed this while training. To prevent this I tweaked the hyperparameters. For example, I increased the learning rate or the alpha (punishment for the algorithm that basically adjustst the weight of the nodes) as countermeasures to prevent overfitting. I also tweaked the max_iterations so training would take less ong and the learning would just be stopped before the network overfitted.
 
-For the first attempt at training a model, I tried several on the dataset and compared the scores. See [notebook 4](./notebooks/Dennis_van_Oosten_4_Training_multiple_models.ipynb).
+### Evaluating a model & Visualizing the outcome
 
-The best result from this initial attempt was a LinearSVC model. In [notebook 5](./notebooks/Dennis_van_Oosten_5_LinearSVC.ipynb) I took a more in-depth look into LinearSVC.
-
-Later on, I wanted to take a closer look into the comparison scores for different algorithms. In [notebook 7.1](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb). I compare different algorithms against the entire dataset and in [notebook 7.2](./notebooks/Dennis_van_Oosten_7.2_ML_Comparisons.ipynb) I do the same with the dataset balanced to see if that made a difference.
+I wanted to take a closer look into the comparison scores for different algorithms. In [notebook 7.1](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I compare different algorithms against the entire dataset and in [notebook 7.2](./notebooks/Dennis_van_Oosten_7.2_ML_Comparisons.ipynb) I do the same with the dataset balanced to see if that made a difference.
 
 The following confusion matrices were created in notebooks 7.1 and 7.2 (download to see the full image):
 - [LinearSVC](./images/Confusion%20Matrix%20-%20Linear%20SVC.png)
@@ -67,23 +69,89 @@ The following confusion matrices were created in notebooks 7.1 and 7.2 (download
 - [Random forest - Balanced](./images/Confusion%20Matrix%20Balanced%20-%20Random%20Forest%20Classifier.png)
 - [SGD Classifier - Balanced](./images/Confusion%20Matrix%20Balanced%20-%20SGD%20Classifier.png)
 
-In [notebook 8](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I attempted to improve the best result of LinearSVC by tweaking the tf-idf vectorization.
+The comparison matrices show the correct and false predictions. A diagonal line is what we ideally want to see here. Some images show these line better than others. 
 
-### Creating reusable dataframes
+## Domain knowledge
 
-To be able to work more easily, I created and saved a few different reusable dataframes where the Agora dataset was filtered in a few different ways. This way, we could easily choose which set we wanted to try out. In combination with the preprocessing script this gives the opportunity to switch between different combinations of preprocessing and balancing the data. The different dataframes created in [notebook 9](./notebooks/Dennis_van_Oosten_9_Creating_Reusable_DataFrames.ipynb) are:
+### Introduction of the subject field
+
+### Literature research
+
+### Explanation of terminology, jargon and definitions
+
+## Data Preprocessing
+
+### Data exploration and visualization
+
+To get a better understanding of how our data was structured, I tried visualizing it in [notebook 3](./notebooks/Dennis_van_Oosten_3_Data_Visualization.ipynb). Here, I visualised the categories, as well as the main categories. 
+
+![Category visualization](./images/category_visualization.png)
+![Main category visualization](./images/main_category_visualization.png)
+
+In the same notebook I also looked at what words are most correlated to each other for each category to see if that made sense. If a person can easily interpret the data ad categorize it, it should be doable for a machine learning model as well. If a human can't make anything of it, it is more unlikely a computer can.
+
+Another group member visualised the length of the documents in the dataset. This gave us usefull information about the difference between the two datasets we had to work with. You can also see some outliers in the image below. For example, the Kaggle set has a few documents that are very long and should not be that long since the documents should be capped at 200 characters. When plotting the categories I could clearly see that some syntax errors were made and these could easily be cleansed.
+
+![Document length](./images/comparison_word_count.png)
+
+### Data cleansing and preparation
+
+As explained above, some outliers were found in the datasets. For example, Kaggle appeared to have some sybtax errors which categorized some descriptions as categories (features as labels). I removed these from the dataset by clearing out categories that had only one description in them . These were probably not real categories but mistakes. I also cleaned out empty records because a model wouldn't be able to get any usefull information out of this. The reason I chose to delete items instead of, for example, taking the mean of similar items is because we were working with text data. Taking the mean would not really be possible or usefull. 
+
+An example of the cleansing can most easily be found in [notebook 9](./notebooks/Dennis_van_Oosten_9_Creating_Reusable_DataFrames.ipynb). To be able to work more easily with the data and not having to cleanse it every single time, I created some standard, filtered and cleansed dataframes for the whole group to work with. The different dataframes I created are:
 - All categories
 - Main categories
 - Balanced set (500 records per category)
 - Balanced set with only main categories
 
-### More machine learning
+The dataframes are all filled with raw data so we could preprocess them in the desired way. The [first notebook](./notebooks/Dennis_van_Oosten_1_Preprocessing.ipynb) shows the preprocessing script I created after trying out a lot of different methods. This script will help easily choose what preprocessing methods we want to use in the future of the project. In the script, I implemented a lot of the standard preprocessing methods that are widely used:
+- Converting all characters to lowercase
+- Removing punctuation
+- Removing numebers
+- Removing characters unique to unicode
+- Removing stop words (from a standard list found in sklearn)
+- Stemming (simple and fast, but created weird words)
+- Lemmatizing (complex and slow because it uses a vocabulary, but gives more readable results)
 
-After a while, a few more thing were tried in an attempt to imporve the LinearSVC model, although with little success. See [notebook 10: One-vs-All Classifier](./notebooks/Dennis_van_Oosten_10_One_vs_All_Classifier.ipynb) and [notebook 11: K-means sentence clustering](./notebooks/Dennis_van_Oosten_11_K-Means_Sentence_Clustering.ipynb).
+I also implemented a step that could remove the last words from every description. This was necessary since we found out that one of the datasets cut off words when the document was longer han 200 characters. This left three dots and half a word at the end. The punctuation made sure the dots were left out, but half a word still remained that made no sense to incorporate into the corpus. 
 
-### Visualizing learning process
+### Data explanation
 
-In the following notebooks, I tried to get more insight in the learning process to maybe find a way to tweak and improve the best model so far (still LinearSVC with tf-idf vectorization). See [notebook 12.1](./notebooks/Dennis_van_Oosten_12.1_Learning_Curves.ipynb), [notebook 12.2](./notebooks/Dennis_van_Oosten_12.2_Learning_Curves.ipynb) and [notebook 13](./notebooks/Dennis_van_Oosten_13_Validation_Curves.ipynb).
+The data used in the project comes from two different sources. The original idea from TNO was to work with a dataset they got from WebIQ, which consisted of item descriptions with varying length. However, due to privacy reasons, we were not allowed to work with that data at all in the beginning of the project and when we eventually were allowed to work with it, it was only possible on site at TNO or by working with the vectorized data. This made working with one of the two datasets really difficult. 
+
+The other dataset however came from Kaggle and was publicly availabe. We spend most of the project on this set, especially the first half of the project. This dataset consisted of data from the Agora dark web marketplace. Just like the WebIQ one, it had item descriptions as features and categories as labels. 
+
+Both datasets were labeled and quite similar with the big difference that Agora was large and thin (around 110,000 records which were cut off and therefore quite short) and WebIQ was short and fat (around 11,000 records of varying length, often longer that the Agora ones).
+
+The group created a codebook for each of the datasets. Since this was not a lot of work, we decided to give this task to one person, meaning that I did not participate in this. However, the endresult was usefull for the whole group and can be seen in the images below.
+
+![Codebook Agora](./images/codebook_agora.jpg)
+![Codebook WebIQ](./images/codebook_webiq.jpg)
+
+## Communication
+
+### Presentations
+During the project, I gave a sufficient amount of presentations. I don't know exactly how many, but every group memeber has roughly done the same amoutn of presentations, and definetely more than two. One of the presentations I'm proud of is one of the public ones I presented. The group made great progress in the weeks prior to this presentation and we had a lot to show. I made a big contribution to this as well. I created the differen dataframes and the confusion matrices shown of in that weeks presentation for example. The whole slideshow can be viewed  [here](./images/week_8_vrijdag.pdf). Images of some of the slides can be seen below.
+
+![Presentation dataframes](./images/presentation_df.jpg)
+![Presentation confusion matrices](./images/presentation_cm.jpg)
+![Presentation scores](./images/presentation_scores.jpg)
+
+### Writing paper
+The [paper](./images/TNO_Darkweb.pdf) was written using an online LaTeX editor (overleaf). The group as a whole wrote the paper together and all, including myself, contributed to the final outcome of the research. 
+
+I was the first one to start writing after a base structure was created by another group member. I created a first draft of the introduction and started working on the data retrieval and methodology part. Also, I answered a few sub questions in seperate files, which did not make it to a great extend in the paper:
+- [Structure of dark web markets](./images/Structure_of_Dark_Web_Markets.pdf)
+- [Preprocessing methods](./images/Preprocessing_Methods.pdf)
+- [Feature extraction methods](./images/Feature_Extraction_Methods.pdf)
+
+Later on, the whole group basically contributed to almost every part of the paper, since we all went over it and changed bits everywhere. In the final paper, the intro is still largely written by me. I created part of the abstract and worked on a large part of the methodology. Specifically on the data retrieval, data visualization, pipeline, preprocessing, vectorization, model training and experiment setup. For the methodology section I also delivered the two category visualization images (see the first two images in data exploration and visualization) and I created the pipeline model from scratch:
+
+![Pipeline model](./images/pipeline_model.png)
+
+I also contributed to the results section (mostly the agora pipeline comparison and neural network section). In the discussion section I contributed a bit to the end of the first paragraph about mapping.
+
+## Other notable contributions
 
 ### Validating on other dataset
 
@@ -94,10 +162,17 @@ To see if our pipeline of preprocessing, vectorization and training worked well 
 
 Overall, we can say that our model performs pretty well on other datasets.
 
-### Neural networks
+### Visualizing the learning process
 
-I also attempted to train a neural network. I did this with SKLearn which turned out to be a bad way to do it since it did not use the GPU. However, I did manage to train some models and the results weren't bad. However, they could not match LinearSVC on our dataset. See [notebook 18](./notebooks/Dennis_van_Oosten_18_CNN.ipynb), [notebook 19.1](./notebooks/Dennis_van_Oosten_19.1_MLP.ipynb), [notebook 19.2](./notebooks/Dennis_van_Oosten_19.2_MLP.ipynb) and [notebook 19.3](./notebooks/Dennis_van_Oosten_19.3_MLP.ipynb).
-To compare how these neural networks compared to our best model, I trained our best model on different datasets in [notebook 21](./notebooks/Dennis_van_Oosten_21_Comparing_Best_Results.ipynb).
+In the following notebooks, I tried to get more insight in the learning process to maybe find a way to tweak and improve the best model so far (still LinearSVC with tf-idf vectorization). See [notebook 12.1](./notebooks/Dennis_van_Oosten_12.1_Learning_Curves.ipynb), [notebook 12.2](./notebooks/Dennis_van_Oosten_12.2_Learning_Curves.ipynb) and [notebook 13](./notebooks/Dennis_van_Oosten_13_Validation_Curves.ipynb).
+
+### Vectorization and t-SNE
+
+To make a first attempt in vectorization I tried applying Bag of Words to our data. See [notebook 2](./notebooks/Dennis_van_Oosten_2_Bag_of_Words.ipynb). Later, I tried a different vectorization method: word2vec, and visualized the vector space using t-SNE. See [notebook 6](./notebooks/Dennis_van_Oosten_6_Word2Vec_&_t-SNE.ipynb).
+
+### Improving scores
+
+I tried a few more things in an attempt to improve the LinearSVC model, although with little success. See [notebook 10: One-vs-All Classifier](./notebooks/Dennis_van_Oosten_10_One_vs_All_Classifier.ipynb) and [notebook 11: K-means sentence clustering](./notebooks/Dennis_van_Oosten_11_K-Means_Sentence_Clustering.ipynb).
 
 ### Topic modelling and new data
 
@@ -108,11 +183,3 @@ To be able to combine the Agora data from Kaggle and the In [notebook 22](./note
 ### Balancing differently
 
 Another method we could still try to improve our model was to balance it in a different way. The only balancing I'd tried so far was to remove entires from larger categories to make all categories of equal size and remove the ones that were too small (see 'Creating reusable dataframes'). This worked, but meant that a lot of data was lost. In [notebook 26.1](./notebooks/Dennis_van_Oosten_26.1_Sample_Balancing_TFIDF.ipynb) and [notebook 26.2](./notebooks/Dennis_van_Oosten_26.2_Sample_Balancing_W2V.ipynb) I tried balancing by copying records from categories that had less records to make them all of equal length. This turned out to work well, but not better compared to the unbalanced set: [notebook 26.3](./notebooks/Dennis_van_Oosten_26.3_Main_Categories_W2V.ipynb). 
-
-## Communication
-
-### Presentations
-During the project, I gave a sufficient amount of presentation. I don't know exactly how many, but every group memeber has roughly done the same amoutn of presentations, and definetely more than two.
-
-### Writing paper
-The paper was written using an online LaTeX editor. The group as a whole wrote the paper together and all, including myself, contributed to the final outcome of the research.
