@@ -65,7 +65,7 @@ When configuring the hyperparameters for the neural network, I had to deal with 
 
 ### Evaluating a model & visualizing the outcome
 
-I wanted to take a closer look into the comparison scores for different algorithms. In [notebook 7.1](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I compare different algorithms against the entire dataset and in [notebook 7.2](./notebooks/Dennis_van_Oosten_7.2_ML_Comparisons.ipynb) I do the same with the dataset balanced to see if that made a difference.
+I wanted to take a closer look into the comparison scores for different algorithms. In [notebook 7.1](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I compare different algorithms against the entire dataset and in [notebook 7.2](./notebooks/Dennis_van_Oosten_7.2_ML_Comparisons.ipynb) I do the same with the dataset balanced to see if that made a difference. You can see an example of the scores of one of the models below:
 
 ![Score example](./images/score_example.jpg)
 ![Score example 2](./images/score_example_2.jpg)
