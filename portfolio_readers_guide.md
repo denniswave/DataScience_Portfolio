@@ -36,11 +36,18 @@ The project was planned using Agile SCRUM and this was done in Trello. Here, our
 
 ### Selecting a model
 
-For the goal of classifying text content, I had to choose a classifying model. Regression models did not suit the needs for our project. A wide range of classification models was available. I searched online for common uses of these models for natural language processing to start off with. In the end, the total collections of models I've tried was of a wide range from models based on decision trees to regression based models. For the first attempt at training a model, I tried several on the dataset and compared the scores. See [notebook 4](./notebooks/Dennis_van_Oosten_4_Training_multiple_models.ipynb). The best result from this initial attempt was a LinearSVC model. In [notebook 5](./notebooks/Dennis_van_Oosten_5_LinearSVC.ipynb) I took a more in-depth look into LinearSVC.
+For the goal of classifying text content, I had to choose a classifying model. Regression models did not suit the needs for our project since we were trying to predict categories (classes) and not any numbers. A wide range of classification models was available. I searched online for commonly used models in the field for natural language processing to start off with (see 'Evaluating a model & visualizing the outcome' for a list of models I made confusion matrices on to get an idea of the models I selected to start off with). In the end, the total collection of models I've tried was really varied. It was a wide range from models based on decision trees to regression based models. I think having a wide selection of different models was a great way to see what worked and what didn't. 
+
+For the first attempt at training a model, I tried several on the dataset and compared the scores. See [notebook 4](./notebooks/Dennis_van_Oosten_4_Training_multiple_models.ipynb). The best result from this initial attempt was a LinearSVC model. In [notebook 5](./notebooks/Dennis_van_Oosten_5_LinearSVC.ipynb) I took a more in-depth look into LinearSVC.
+
+Later on, I tried looking into neural networks. I wanted to try a convolutional neural network, since I read that these are very good at finding certain patterns, especially in images (they are based on how animals percieve images). This pattern recognition meant it should have worked great with natural language as well. Unfortunately, I could not get it to work in a reasonable amount of time, so I reverted back to a multi-layer perceptron; a neural network that was easy to implement (see training a model).
 
 ### Configuring a model
 
-When configuring the models, I noticed that Random Forest Classifier for example had way worse results than other models. After looking into how this algorithm worked, I decided to change the depth of the tree so it would better reflect the amount of features and topics we had. This dramatically improved the performance of the model.
+When configuring the models, I noticed that Random Forest Classifier for example had way worse results than other models. After looking into how this algorithm worked, I decided to change the depth of the tree so it would better reflect the amount of features and topics we had. This dramatically improved the performance of the model. You can see that the confusion matrix looks way better after tweaking the parameters.
+
+![Wrong parameters](./images/wrong_parameters.jpg)
+![Right parameters](./images/Confusion%20Matrix%20-%20Random%20Forest%20Classifier.png)
 
 After we found out Linear SVC worked best, I tried tweaking the parameters and n-grams of tf-idf to try to get a higher score. Unfortunately, this did not work. The parameters appearently were already well tuned. In [notebook 8](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I attempted to improve the best result of LinearSVC by tweaking the tf-idf vectorization.
 
@@ -49,9 +56,11 @@ After we found out Linear SVC worked best, I tried tweaking the parameters and n
 In the following notebooks, I tried to get more insight in the learning process to maybe find a way to tweak and improve the best model so far (still LinearSVC with tf-idf vectorization). See [notebook 12.1](./notebooks/Dennis_van_Oosten_12.1_Learning_Curves.ipynb), [notebook 12.2](./notebooks/Dennis_van_Oosten_12.2_Learning_Curves.ipynb) and [notebook 13](./notebooks/Dennis_van_Oosten_13_Validation_Curves.ipynb). 
 
 I also attempted to train a neural network. I did this with SKLearn which turned out to be a bad way to do it since it did not use the GPU. However, I did manage to train some models and the results weren't bad. However, they could not match LinearSVC on our dataset. See [notebook 18](./notebooks/Dennis_van_Oosten_18_CNN.ipynb), [notebook 19.1](./notebooks/Dennis_van_Oosten_19.1_MLP.ipynb), [notebook 19.2](./notebooks/Dennis_van_Oosten_19.2_MLP.ipynb) and [notebook 19.3](./notebooks/Dennis_van_Oosten_19.3_MLP.ipynb).
-To compare how these neural networks compared to our best model, I trained our best model on different datasets in [notebook 21](./notebooks/Dennis_van_Oosten_21_Comparing_Best_Results.ipynb). When configuring the hyperparameters for the neural network, I had to deal with overfitting. Neural networks are known to overfit, and I noticed this while training. To prevent this I tweaked the hyperparameters. For example, I increased the learning rate or the alpha (punishment for the algorithm that basically adjustst the weight of the nodes) as countermeasures to prevent overfitting. I also tweaked the max_iterations so training would take less ong and the learning would just be stopped before the network overfitted.
+To compare how these neural networks compared to our best model, I trained our best model on different datasets in [notebook 21](./notebooks/Dennis_van_Oosten_21_Comparing_Best_Results.ipynb). 
 
-### Evaluating a model & Visualizing the outcome
+When configuring the hyperparameters for the neural network, I had to deal with overfitting. Neural networks are known to overfit, and I noticed this while training. To prevent this I tweaked the hyperparameters. For example, I increased the learning rate or the alpha (punishment for the algorithm that basically adjustst the weight of the nodes) as countermeasures to prevent overfitting. I also tweaked the max_iterations so training would take less ong and the learning would just be stopped before the network overfitted.
+
+### Evaluating a model & visualizing the outcome
 
 I wanted to take a closer look into the comparison scores for different algorithms. In [notebook 7.1](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I compare different algorithms against the entire dataset and in [notebook 7.2](./notebooks/Dennis_van_Oosten_7.2_ML_Comparisons.ipynb) I do the same with the dataset balanced to see if that made a difference.
 
@@ -93,7 +102,7 @@ The group decided that it was usefull to have a terminology list that consists o
 
 ## Data Preprocessing
 
-### Data exploration and visualization
+### Data exploration & data visualization
 
 To get a better understanding of how our data was structured, I tried visualizing it in [notebook 3](./notebooks/Dennis_van_Oosten_3_Data_Visualization.ipynb). Here, I visualised the categories, as well as the main categories. 
 
@@ -102,13 +111,13 @@ To get a better understanding of how our data was structured, I tried visualizin
 
 In the same notebook I also looked at what words are most correlated to each other for each category to see if that made sense. If a person can easily interpret the data ad categorize it, it should be doable for a machine learning model as well. If a human can't make anything of it, it is more unlikely a computer can.
 
-Another group member visualised the length of the documents in the dataset. This gave us usefull information about the difference between the two datasets we had to work with. You can also see some outliers in the image below. For example, the Kaggle set has a few documents that are very long and should not be that long since the documents should be capped at 200 characters. When plotting the categories I could clearly see that some syntax errors were made and these could easily be cleansed.
+Another group member visualised the length of the documents in the dataset. This gave us usefull information about the difference between the two datasets we had to work with. You can also see some outliers in the image below. For example, the Kaggle set has a few documents that are very long and should not be that long since the documents should be capped at 200 characters. When plotting the categories I could clearly see some outlier dots that indicated longer documents. Some syntax errors were probably made but these should easily be cleansed (see next section on data cleansing).
 
 ![Document length](./images/comparison_word_count.png)
 
-### Data cleansing and preparation
+### Data cleansing & data preparation
 
-As explained above, some outliers were found in the datasets. For example, Kaggle appeared to have some sybtax errors which categorized some descriptions as categories (features as labels). I removed these from the dataset by clearing out categories that had only one description in them . These were probably not real categories but mistakes. I also cleaned out empty records because a model wouldn't be able to get any usefull information out of this. The reason I chose to delete items instead of, for example, taking the mean of similar items is because we were working with text data. Taking the mean would not really be possible or usefull. 
+As explained above, some outliers were found in the datasets. For example, Kaggle appeared to have some syntax errors which categorized some descriptions as categories (features as labels). I removed these from the dataset by clearing out categories that had only one description in them . These were probably not real categories but mistakes. I also cleaned out empty records because a model wouldn't be able to get any usefull information out of this. The reason I chose to delete items instead of, for example, taking the mean of similar items is because we were working with text data. Taking the mean would not really be possible or usefull. 
 
 An example of the cleansing can most easily be found in [notebook 9](./notebooks/Dennis_van_Oosten_9_Creating_Reusable_DataFrames.ipynb). To be able to work more easily with the data and not having to cleanse it every single time, I created some standard, filtered and cleansed dataframes for the whole group to work with. The different dataframes I created are:
 - All categories
@@ -126,6 +135,8 @@ The dataframes are all filled with raw data so we could preprocess them in the d
 - Lemmatizing (complex and slow because it uses a vocabulary, but gives more readable results)
 
 I also implemented a step that could remove the last words from every description. This was necessary since we found out that one of the datasets cut off words when the document was longer han 200 characters. This left three dots and half a word at the end. The punctuation made sure the dots were left out, but half a word still remained that made no sense to incorporate into the corpus. 
+
+Later on in the project, we thought we could still try to improve our model by balancing the data in a different way. The only balancing I'd tried so far was to remove entires from larger categories to make all categories of equal size and remove the ones that were too small. This worked, but meant that a lot of data was lost. In [notebook 26.1](./notebooks/Dennis_van_Oosten_26.1_Sample_Balancing_TFIDF.ipynb) and [notebook 26.2](./notebooks/Dennis_van_Oosten_26.2_Sample_Balancing_W2V.ipynb) I tried balancing by copying records from categories that had less records to make them all of equal length. This turned out to work well, but not better compared to the unbalanced set: [notebook 26.3](./notebooks/Dennis_van_Oosten_26.3_Main_Categories_W2V.ipynb). 
 
 ### Data explanation
 
@@ -174,13 +185,9 @@ To see if our pipeline of preprocessing, vectorization and training worked well 
 
 Overall, we can say that our model performs pretty well on other datasets.
 
-### Visualizing the learning process
-
-In the following notebooks, I tried to get more insight in the learning process to maybe find a way to tweak and improve the best model so far (still LinearSVC with tf-idf vectorization). See [notebook 12.1](./notebooks/Dennis_van_Oosten_12.1_Learning_Curves.ipynb), [notebook 12.2](./notebooks/Dennis_van_Oosten_12.2_Learning_Curves.ipynb) and [notebook 13](./notebooks/Dennis_van_Oosten_13_Validation_Curves.ipynb).
-
 ### Vectorization and t-SNE
 
-To make a first attempt in vectorization I tried applying Bag of Words to our data. See [notebook 2](./notebooks/Dennis_van_Oosten_2_Bag_of_Words.ipynb). Later, I tried a different vectorization method: word2vec, and visualized the vector space using t-SNE. See [notebook 6](./notebooks/Dennis_van_Oosten_6_Word2Vec_&_t-SNE.ipynb).
+To make a first attempt in vectorization I tried applying Bag of Words to our data. See [notebook 2](./notebooks/Dennis_van_Oosten_2_Bag_of_Words.ipynb). Later, I tried a different vectorization method: word2vec, and visualized the vector space using t-SNE. See [notebook 6](./notebooks/Dennis_van_Oosten_6_Word2Vec_&_t-SNE.ipynb). The t-SNE outcome was not a desired one, but at least it was a first attempt with some outcome. I probably did not feed the correct data into the model or I did not simply tweak the t-SNE parameters well enough. Luckily, another group member did manage to get some great t-SNE results.
 
 ### Improving scores
 
@@ -191,7 +198,3 @@ I tried a few more things in an attempt to improve the LinearSVC model, although
 Because TNO wanted the categories mapped to the Interpol topics list and maybe also detect new topics, I tried a form of topic modelling in [notebook 20](./notebooks/Dennis_van_Oosten_20_Extracting_Topics.ipynb). However, eventually we mapped the topics ourselves manually, since this wouldn't take that long and would assure that we got the best labels for further training.
 
 To be able to combine the Agora data from Kaggle and the In [notebook 22](./notebooks/Dennis_van_Oosten_22_Mapped_Dataset.ipynb) I trained the mapped Agora dataset (this was already mapped by Wessel Ottevanger) to see how it would perform when labelled differently. In [notebook 23](./notebooks/Dennis_van_Oosten_23_Mapping.ipynb) Wessel and I mapped the 'darkweb markets dataset' (the new data from webIq that TNO wanted us to work on). We took a look at the categories in both datasets together to make sure the categories mapping made sense for both datasets. This was important, since training and classifying on categories with different descriptions in them that actually belong to a different category would not be great for the eventual result. In [notebook 24](./notebooks/Dennis_van_Oosten_24_New_Dataset.ipynb) I visualized and trained this new, mapped dataset to see how it compared to Agora.
-
-### Balancing differently
-
-Another method we could still try to improve our model was to balance it in a different way. The only balancing I'd tried so far was to remove entires from larger categories to make all categories of equal size and remove the ones that were too small (see 'Creating reusable dataframes'). This worked, but meant that a lot of data was lost. In [notebook 26.1](./notebooks/Dennis_van_Oosten_26.1_Sample_Balancing_TFIDF.ipynb) and [notebook 26.2](./notebooks/Dennis_van_Oosten_26.2_Sample_Balancing_W2V.ipynb) I tried balancing by copying records from categories that had less records to make them all of equal length. This turned out to work well, but not better compared to the unbalanced set: [notebook 26.3](./notebooks/Dennis_van_Oosten_26.3_Main_Categories_W2V.ipynb). 
