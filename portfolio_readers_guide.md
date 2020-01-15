@@ -75,9 +75,21 @@ The comparison matrices show the correct and false predictions. A diagonal line 
 
 ### Introduction of the subject field
 
+The internet consists of two different sections, the clear- and the deep web. The deep web is the part of the internet which is not accessible through standard web browsers because it is not indexed and therefore not shown in the output of any search engine query. Within the deep web there is another part of the internet, the dark web, which has become the home for many traditional- or cybercriminals to sell goods or services because it is highly anonymized.
+
+Law enforcement is very interested in this relatively unexplored part of the internet where criminals can seamingly do their business with low risk of getting caught. Therefore, Interpol has started a project called “Titanium”, which aims to get insight and knowledge about the dark web, targeted to help law enforcement track down criminals. 
+
+The goal is also to pick up on things discussed on dark web forums, to detect newly discussed sellers or topics. To make this possible, a computer needs to be able to look at forum posts and item descriptions and determine what the topic is the given text is about. This way, when law enforcement is looking for a criminal selling a particular item, it is easy to see where that product is sold and on what forums it is discussed on.
+
+The given text needs to be classified as one of the topics that Interpol is interested in. Since there are multiple topics, it is a multi-class text classification problem. To be able to make a classifier for the dark web, a pipeline needs to be created that can be fed with a text of varying length and predicts the topic of this text.
+
 ### Literature research
 
+I have gathered a few papers during the course of the project that helped me better understand the field of knowledge. An example of a paper I looked at: [Complex Network Analysis of Darknet Black Market Forum Structure](./images/Thesis_Toms_Reksna.pdf)
+
 ### Explanation of terminology, jargon and definitions
+
+The group decided that it was usefull to have a terminology list that consists of every term, jargon and definition that might not be clear. Another group member created [this list](./images/Terminology.pdf), which grew bigger during the course of the project.
 
 ## Data Preprocessing
 
