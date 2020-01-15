@@ -84,7 +84,7 @@ The following confusion matrices were also created in notebooks 7.1 and 7.2 (dow
 - [Random forest - Balanced](./images/Confusion%20Matrix%20Balanced%20-%20Random%20Forest%20Classifier.png)
 - [SGD Classifier - Balanced](./images/Confusion%20Matrix%20Balanced%20-%20SGD%20Classifier.png)
 
-The comparison matrices show the correct and false predictions (true positive, true negative, false positive and false negative). A diagonal line is what we ideally want to see here. In some images, this line is more clear than in others.
+The confusion matrices show the correct and false predictions (true positive, true negative, false positive and false negative). A diagonal line is what we ideally want to see here. In some images, this line is more clear than in others.
 
 ## Domain knowledge
 
