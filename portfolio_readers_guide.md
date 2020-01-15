@@ -67,7 +67,10 @@ When configuring the hyperparameters for the neural network, I had to deal with 
 
 I wanted to take a closer look into the comparison scores for different algorithms. In [notebook 7.1](./notebooks/Dennis_van_Oosten_7.1_ML_Comparisons.ipynb) I compare different algorithms against the entire dataset and in [notebook 7.2](./notebooks/Dennis_van_Oosten_7.2_ML_Comparisons.ipynb) I do the same with the dataset balanced to see if that made a difference.
 
-The following confusion matrices were created in notebooks 7.1 and 7.2 (download to see the full image):
+![Score example](./images/score_example.jpg)
+![Score example 2](./images/score_example_2.jpg)
+
+The following confusion matrices were also created in notebooks 7.1 and 7.2 (download to see the full image):
 - [LinearSVC](./images/Confusion%20Matrix%20-%20Linear%20SVC.png)
 - [Logistic regression](./images/Confusion%20Matrix%20-%20Logistic%20Regression.png)
 - [Multinomial NB](./images/Confusion%20Matrix%20-%20Multinomial%20Naive%20Bais.png)
@@ -81,7 +84,7 @@ The following confusion matrices were created in notebooks 7.1 and 7.2 (download
 - [Random forest - Balanced](./images/Confusion%20Matrix%20Balanced%20-%20Random%20Forest%20Classifier.png)
 - [SGD Classifier - Balanced](./images/Confusion%20Matrix%20Balanced%20-%20SGD%20Classifier.png)
 
-The comparison matrices show the correct and false predictions. A diagonal line is what we ideally want to see here. Some images show these line better than others. 
+The comparison matrices show the correct and false predictions (true positive, true negative, false positive and false negative). A diagonal line is what we ideally want to see here. In some images, this line is more clear than in others.
 
 ## Domain knowledge
 
